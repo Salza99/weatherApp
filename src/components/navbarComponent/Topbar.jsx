@@ -16,7 +16,7 @@ const Topbar = () => {
   return (
     <Navbar className="nav-bg justify-content-between mb-4">
       <Container>
-        <Form inline onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Row>
             <Col xs="auto">
               <Form.Control
