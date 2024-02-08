@@ -20,7 +20,7 @@ const Homepage = () => {
   return (
     <Container fluid>
       <Row>
-        {result && (
+        {result ? (
           <>
             <Col className="mb-3" xs={12}>
               <HomeTopSection result={result} />
@@ -32,6 +32,14 @@ const Homepage = () => {
               <HomeRightSection />
             </Col>
           </>
+        ) : (
+          <Row>
+            <Col xs={12}>
+              <div className="p-3 text-center">
+                <h4>Inizia cercando una città dalla barra di navigazione!</h4>
+              </div>
+            </Col>
+          </Row>
         )}
       </Row>
     </Container>

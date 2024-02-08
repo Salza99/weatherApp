@@ -2,6 +2,8 @@ export const FETCH_ON_SEARCH = "FETCH_ON_SEARCH";
 export const FETCH_INFO_WEATHER = "FETCH_INFO_WEATHER";
 export const FETCH_FIVE_DAYS_INFO_WEATHER = "FETCH_FIVE_DAYS_INFO_WEATHER";
 export const SELECT_DAY = "SELECT_DAY";
+export const SAVE_LOCATION = "SAVE_LOCATION";
+export const REMOVE_LOCATION = "REMOVE_LOCATION";
 
 export const search = (searchValue) => {
   return async (dispatch) => {
