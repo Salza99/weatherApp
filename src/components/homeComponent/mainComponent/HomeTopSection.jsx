@@ -1,24 +1,30 @@
 import { Card, Col, Row } from "react-bootstrap";
-import { SunFill, Thermometer, ThermometerHalf } from "react-bootstrap-icons";
+import { Droplet, Thermometer, ThermometerHalf } from "react-bootstrap-icons";
 
-const HomeTopSection = () => {
+const HomeTopSection = ({ result }) => {
   return (
-    <Card>
+    <Card className="not-selected p-2">
       <Row>
         <Col xs={2}>
-          <SunFill style={{ fontSize: "3rem" }} />
+          <img src={"https://openweathermap.org/img/wn/" + result.weather[0].icon + ".png"} alt="weather-icon" />
         </Col>
         <Col xs={4}>
-          <h3>Roma</h3>
-          <p>Domenica 23/07/2023</p>
+          <h3>{result.name}</h3>
+          <p>
+            <Droplet className="fs-4" color="white" /> umidità {result.main.humidity}%
+          </p>
         </Col>
         <Col xs={3}>
-          <Thermometer />
-          <h4>17.6&deg;</h4>
+          <Thermometer className="termo-anim" />
+          <h4>
+            {(result.main.temp - 273.15).toFixed(2)}&deg; / {(result.main.feels_like - 273.15).toFixed(2)}&deg;
+          </h4>
         </Col>
         <Col xs={3}>
-          <ThermometerHalf />
-          <h4>13.2&deg; / 19.4&deg;</h4>
+          <ThermometerHalf className="termo-anim" />
+          <h4>
+            {(result.main.temp_min - 273.15).toFixed(2)}&deg; / {(result.main.temp_max - 273.15).toFixed(2)}&deg;
+          </h4>
         </Col>
       </Row>
     </Card>

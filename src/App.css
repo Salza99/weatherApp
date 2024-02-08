@@ -1,0 +1,74 @@
+:root {
+  --bg-color: #0249b2;
+  --bg-selected: #5183fa;
+  --bg-not-selected: #012572;
+}
+body {
+  background-color: var(--bg-color);
+  font-family: Franklin Gothic Medium sans-serif;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.transition-background {
+  transition: background-color 0.8s ease, transform 0.5s ease;
+}
+.left-section {
+  max-height: 80vh;
+}
+.selected {
+  background-color: var(--bg-selected);
+  transform: scale(1.05);
+}
+.not-selected {
+  background-color: var(--bg-not-selected);
+}
+.nav-bg {
+  background: rgba(255, 255, 255, 0.5); /* Utilizza un colore bianco semi-trasparente */
+  backdrop-filter: blur(10px); /* Applica un effetto di sfocatura al div */
+  padding: 20px; /* Aggiunge spazio interno al div per visualizzare il contenuto */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.transition-transform {
+  transition: transform 1s ease;
+}
+.icon-select {
+  transform: translateX(130%);
+}
+.text-select {
+  transform: translateX(-40%);
+}
+.termo-anim {
+  font-size: 1.5rem;
+  animation: termomether-anim 3s linear infinite alternate-reverse;
+}
+.cloud-anim {
+  color: white;
+  font-size: 1.5rem;
+  animation: cloud-rain-anim 2s linear infinite alternate-reverse;
+}
+@keyframes termomether-anim {
+  from {
+    color: rgb(0, 191, 255);
+  }
+  to {
+    color: red;
+  }
+}
+@keyframes cloud-rain-anim {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}

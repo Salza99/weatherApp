@@ -1,16 +1,37 @@
 import { Card, Col, Row } from "react-bootstrap";
-import { SunFill } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { SELECT_DAY } from "../../../redux/actions/MeteoAction";
 
-const SingleDayWeatherCard = () => {
+const SingleDayWeatherCard = ({ data }) => {
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => state.meteo.selectedDay);
+  const handleClick = () => {
+    if (selected.datetime !== data.datetime) {
+      dispatch({ type: SELECT_DAY, payload: data });
+    } else {
+      dispatch({ type: SELECT_DAY, payload: "" });
+    }
+  };
   return (
-    <Card>
+    <Card
+      className={`mb-3 p-2 shadow transition-background cursor-pointer ${
+        selected.datetime === data.datetime ? "selected" : "not-selected"
+      }`}
+      onClick={handleClick}
+    >
       <Row>
         <Col xs={4}>
-          <SunFill />
+          <img
+            className={`transition-transform ${selected.datetime === data.datetime && "icon-select"}`}
+            src={"https://cdn.weatherbit.io/static/img/icons/" + data.weather.icon + ".png"}
+            alt="meteo-icon"
+          />
         </Col>
         <Col xs={8}>
-          <h5>28/07/2023</h5>
-          <p>Soleggiato</p>
+          <div className={`transition-transform ${selected.datetime === data.datetime && "text-select"}`}>
+            <h5>{data.datetime}</h5>
+            <p>{data.weather.description}</p>
+          </div>
         </Col>
       </Row>
     </Card>

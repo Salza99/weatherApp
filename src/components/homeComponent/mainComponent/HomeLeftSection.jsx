@@ -1,10 +1,13 @@
 import SingleDayWeatherCard from "../singleComponent/SingleDayWeatherCard";
 
-const HomeLeftSection = () => {
+const HomeLeftSection = ({ fiveDaysResult }) => {
   return (
-    <>
-      <SingleDayWeatherCard />
-    </>
+    <div className="left-section">
+      {fiveDaysResult.data.length > 0 &&
+        fiveDaysResult.data.map((data, index) => {
+          return <SingleDayWeatherCard key={index} data={data} />;
+        })}
+    </div>
   );
 };
 export default HomeLeftSection;
