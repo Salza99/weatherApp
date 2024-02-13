@@ -28,33 +28,27 @@ const HomeTopSection = ({ result }) => {
   return (
     <Card className="not-selected p-3">
       <Row>
-        <Col className="d-flex align-items-center justify-content-center" xs={1}>
-          <img
-            style={{ width: "75px", height: "75px" }}
-            className="img-fluid"
-            src={"https://openweathermap.org/img/wn/" + result.weather[0].icon + ".png"}
-            alt="weather-icon"
-          />
-        </Col>
-        <Col className="d-flex flex-column align-items-center justify-content-center" xs={4}>
+        <Col className="d-flex flex-column align-items-center justify-content-center" xs={5} sm={4}>
           <h3>{result.name}</h3>
           <p>
             <Droplet className="fs-4" color="white" /> umidità {result.main.humidity}%
           </p>
         </Col>
-        <Col className="d-flex align-items-center justify-content-center" xs={3}>
+        <Col className="d-flex align-items-center justify-content-center flex-column" xs={5} sm={4}>
           <Thermometer className="termo-anim" />
-          <h4>
+          <p className="m-0">temp / perc</p>
+          <p className="m-0">
             {(result.main.temp - 273.15).toFixed(2)}&deg; / {(result.main.feels_like - 273.15).toFixed(2)}&deg;
-          </h4>
+          </p>
         </Col>
-        <Col className="d-flex align-items-center justify-content-center" xs={3}>
+        <Col className="d-sm-flex align-items-center justify-content-center flex-column d-none" sm={3}>
           <ThermometerHalf className="termo-anim" />
-          <h4>
+          <p className="m-0">min / max</p>
+          <p className="m-0">
             {(result.main.temp_min - 273.15).toFixed(2)}&deg; / {(result.main.temp_max - 273.15).toFixed(2)}&deg;
-          </h4>
+          </p>
         </Col>
-        <Col xs={1} className="d-flex align-items-center justify-content-center">
+        <Col xs={2} sm={1} className="d-flex align-items-center justify-content-center">
           {isFav ? (
             <HeartFill className="fs-4 pointer-cursor" color="white" onClick={handleRemove} />
           ) : (

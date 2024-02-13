@@ -17,7 +17,7 @@ const CanvasForFavourite = ({ show, handleClose, favourites }) => {
               return 0;
             })
             .map((fav) => {
-              return <SingleFavouriteCard key={fav.id} fav={fav} />;
+              return <SingleFavouriteCard key={fav.id} fav={fav} handleClose={handleClose} />;
             })
         ) : (
           <div>

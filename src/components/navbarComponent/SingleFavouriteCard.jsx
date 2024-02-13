@@ -3,7 +3,7 @@ import { DropletFill, HeartFill, Thermometer, ThermometerHalf } from "react-boot
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "../../redux/actions/MeteoAction";
 
-const SingleFavouriteCard = ({ fav }) => {
+const SingleFavouriteCard = ({ fav, handleClose }) => {
   const dispatch = useDispatch();
   const actualSearch = useSelector((state) => state.meteo.content);
   const handleClick = () => {
@@ -12,7 +12,13 @@ const SingleFavouriteCard = ({ fav }) => {
     }
   };
   return (
-    <Card className={`not-selected mb-3 ${fav.name !== actualSearch.name && "cursor-pointer"} `} onClick={handleClick}>
+    <Card
+      className={`not-selected mb-3 ${fav.name !== actualSearch.name && "cursor-pointer"} `}
+      onClick={() => {
+        handleClick();
+        handleClose();
+      }}
+    >
       <Card.Header className="d-flex justify-content-between align-items-center p-3">
         <h4>{fav.name}</h4>
         <HeartFill color="white" className="me-2 fs-4" />

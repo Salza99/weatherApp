@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import {
   ArrowRight,
@@ -89,14 +88,14 @@ const SingleHourWeatherCard = ({ selectedDay }) => {
               <div className="d-flex justify-content-between p-3 align-items-center mb-1">
                 <p>
                   <SunriseFill className="me-2 fs-4" />
-                  Tramonto: {moonRise.hours < 10 ? "0" + moonRise.hours.toString() : moonRise.hours} :{" "}
+                  Alba: {moonRise.hours < 10 ? "0" + moonRise.hours.toString() : moonRise.hours} :{" "}
                   {moonRise.minutes < 10 ? "0" + moonRise.minutes.toString() : moonRise.minutes} :{" "}
                   {moonRise.seconds < 10 ? "0" + moonRise.seconds.toString() : moonRise.seconds}
                 </p>
                 <ArrowRight style={{ fontSize: "3rem" }} color="white" />
                 <p>
                   <SunsetFill className="me-2 fs-4" />
-                  Alba: {moonSet.hours < 10 ? "0" + moonSet.hours.toString() : moonSet.hours} :{" "}
+                  Tramonto: {moonSet.hours < 10 ? "0" + moonSet.hours.toString() : moonSet.hours} :{" "}
                   {moonSet.minutes < 10 ? "0" + moonSet.minutes.toString() : moonSet.minutes} :{" "}
                   {moonSet.seconds < 10 ? "0" + moonSet.seconds.toString() : moonSet.seconds}
                 </p>

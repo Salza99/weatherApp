@@ -4,6 +4,11 @@ import { SELECT_DAY } from "../../../redux/actions/MeteoAction";
 
 const SingleDayWeatherCard = ({ data }) => {
   const dispatch = useDispatch();
+  const scrollToSection = (sectionId) => {
+    if (sectionId === "DETAILS") {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  };
   const selected = useSelector((state) => state.meteo.selectedDay);
   const handleClick = () => {
     if (selected.datetime !== data.datetime) {
@@ -17,7 +22,10 @@ const SingleDayWeatherCard = ({ data }) => {
       className={`mb-3 p-2 shadow transition-background cursor-pointer ${
         selected.datetime === data.datetime ? "selected" : "not-selected"
       }`}
-      onClick={handleClick}
+      onClick={() => {
+        handleClick();
+        scrollToSection("DETAILS");
+      }}
     >
       <Row>
         <Col xs={4}>

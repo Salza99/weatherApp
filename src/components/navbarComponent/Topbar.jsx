@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Navbar, Offcanvas, Row } from "react-boot
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "../../redux/actions/MeteoAction";
 import CanvasForFavourite from "./CanvasForFavourite";
+import { Search } from "react-bootstrap-icons";
 
 const Topbar = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -22,23 +23,27 @@ const Topbar = () => {
     <>
       <Navbar className="nav-bg justify-content-between mb-4">
         <Container>
-          <Form onSubmit={handleSubmit}>
-            <Row>
+          <Form className="me-3" onSubmit={handleSubmit}>
+            <Row className="position-relative">
               <Col xs="auto">
                 <Form.Control
                   value={searchValue}
                   type="text"
-                  placeholder="Verona"
+                  placeholder="Cerca..."
                   className=" mr-sm-2"
                   onChange={handleChange}
                 />
               </Col>
               <Col xs="auto">
-                <Button type="submit">Cerca</Button>
+                <button className="btn-src" type="submit">
+                  <Search />
+                </button>
               </Col>
             </Row>
           </Form>
-          <Button onClick={handleShow}>Vedi preferiti</Button>
+          <button className="btn-fav" onClick={handleShow}>
+            Preferiti
+          </button>
         </Container>
       </Navbar>
       <CanvasForFavourite show={show} handleClose={handleClose} favourites={favourites} />

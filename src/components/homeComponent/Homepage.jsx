@@ -25,10 +25,10 @@ const Homepage = () => {
             <Col className="mb-3" xs={12}>
               <HomeTopSection result={result} />
             </Col>
-            <Col className="mb-3" xs={12} sm={5} md={4}>
+            <Col className="mb-3" xs={12} md={5}>
               <HomeLeftSection fiveDaysResult={fiveDaysResult} />
             </Col>
-            <Col className="mb-3" xs={12} sm={7} md={8}>
+            <Col className="mb-3" xs={12} md={7}>
               <HomeRightSection />
             </Col>
           </>
